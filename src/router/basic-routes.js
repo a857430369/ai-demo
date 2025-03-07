@@ -47,4 +47,38 @@ export const basicRoutes = [
       layout: 'empty',
     },
   },
+  // 游戏中心路由组
+  {
+    name: "GameCenter",
+    path: '/games',
+    children: [
+      {
+        name: 'Gomoku',
+        path: 'gomoku',
+        component: () => import('@/views/games/gomoku/index.vue'),
+        meta: {
+          title: '五子棋',
+          requiresAuth: true
+        },
+      },
+      {
+        name: 'SnakeGame',
+        path: 'snake',
+        component: () => import('@/views/games/snake/index.vue'),
+        meta: {
+          title: '贪吃蛇',
+          requiresAuth: true
+        },
+      },
+      {
+        name: 'FlappyBird',
+        path: 'flappy',
+        component: () => import('@/views/games/flappy/index.vue'),
+        meta: {
+          title: '飞鸟挑战',
+          requiresAuth: true
+        },
+      }
+    ]
+  },
 ]
